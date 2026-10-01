@@ -1,0 +1,359 @@
+/* =====================================================
+   STYLE.CSS - dipakai oleh case1.html dan case2.html
+   Palet: pink muda, coklat muda, cream, coklat tua
+   Font : Times New Roman
+   Isi  : A. Umum  |  B. Case 1  |  C. Case 2  |  D. Responsive
+   ===================================================== */
+
+
+/* =====================================================
+   A. UMUM (dipakai kedua halaman)
+   ===================================================== */
+
+/* ---------- Variabel warna ---------- */
+:root {
+  --pink:        #f8d7da;
+  --pink-hover:  #e8bebe;
+  --coklat-muda: #d2b48c;
+  --cream:       #fff8f0;
+  --coklat-tua:  #5c4033;
+}
+
+/* ---------- Reset & dasar ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--pink);                  /* Color: background */
+  color: var(--coklat-tua);                       /* Color: teks */
+  font-family: "Times New Roman", Times, serif;   /* Font: jenis font */
+  font-size: 18px;                                /* Font: ukuran teks */
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.sorot {
+  padding: 0 6px;
+  background-color: var(--pink);
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+
+/* =====================================================
+   B. CASE 1 - Halaman Profil Sederhana
+   ===================================================== */
+
+body.case1 {
+  padding: 24px;
+}
+
+/* ---------- Container ---------- */
+.case1 .container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  background-color: var(--cream);
+  border: 2px solid var(--coklat-muda);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(92, 64, 51, 0.12);
+}
+
+/* ---------- Judul (selector id) ---------- */
+.case1 #judul {
+  margin-bottom: 20px;
+  padding: 14px;
+  background-color: var(--coklat-muda);
+  color: var(--cream);
+  font-size: 2.2rem;          /* ukuran teks */
+  font-weight: bold;          /* ketebalan teks */
+  font-style: italic;         /* gaya teks */
+  text-align: center;         /* Text Alignment */
+  border-radius: 15px;
+}
+
+/* ---------- Deskripsi ---------- */
+.case1 .deskripsi p {
+  margin-bottom: 18px;
+  text-align: justify;        /* Text Alignment */
+  font-style: italic;
+}
+
+/* ---------- Card & list ---------- */
+.case1 .card {
+  margin-bottom: 18px;
+  padding: 14px 22px;
+  background-color: var(--pink);
+  border-left: 6px solid var(--coklat-muda);
+  border-radius: 15px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.case1 .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(92, 64, 51, 0.15);
+}
+
+.case1 .card h2 {
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.case1 .info {
+  padding-left: 24px;
+  list-style-type: "✦  ";
+}
+
+.case1 .hobi {
+  padding-left: 28px;
+  list-style-type: decimal;
+}
+
+.case1 .hobi li::marker {
+  font-weight: bold;
+  color: var(--coklat-muda);
+}
+
+.case1 .info li,
+.case1 .hobi li {
+  margin-bottom: 4px;
+}
+
+/* ---------- Penutup ---------- */
+.case1 .penutup {
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+
+/* =====================================================
+   C. CASE 2 - Layout Website (Flexbox + Grid)
+   ===================================================== */
+
+/* ---------- Layout utama (CSS Grid) ---------- */
+.case2 .wrapper {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-areas:
+    "header  header"
+    "sidebar konten"
+    "footer  footer";
+  gap: 16px;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.case2 .header  { grid-area: header; }
+.case2 .sidebar { grid-area: sidebar; }
+.case2 .konten  { grid-area: konten; }
+.case2 .footer  { grid-area: footer; }
+
+/* ---------- Header & Navbar (Flexbox) ---------- */
+.case2 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  background-color: var(--coklat-muda);
+  color: var(--cream);
+  border-radius: 15px;
+}
+
+.case2 .identitas h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.case2 .identitas p {
+  font-style: italic;
+}
+
+.case2 .menu {
+  display: flex;               /* menu horizontal */
+  gap: 8px;
+}
+
+.case2 .menu a {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 15px;
+  transition: background-color 0.25s, transform 0.25s;
+}
+
+.case2 .menu a:hover {
+  background-color: var(--pink);
+  color: var(--coklat-tua);
+  transform: translateY(-2px);
+}
+
+/* ---------- Sidebar ---------- */
+.case2 .sidebar {
+  padding: 20px;
+  background-color: var(--cream);
+  border: 2px solid var(--coklat-muda);
+  border-radius: 15px;
+}
+
+.case2 .sidebar h2 {
+  margin-bottom: 12px;
+}
+
+.case2 .sidebar li {
+  margin-bottom: 8px;
+}
+
+.case2 .sidebar a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 15px;
+  transition: background-color 0.25s, transform 0.25s;
+}
+
+.case2 .sidebar a:hover {
+  background-color: var(--pink-hover);
+  transform: translateX(5px);   /* menu bergeser saat disentuh */
+}
+
+/* ---------- Konten utama ---------- */
+.case2 .konten {
+  padding: 24px;
+  background-color: var(--cream);
+  border: 2px solid var(--coklat-muda);
+  border-radius: 15px;
+}
+
+.case2 .konten h2 {
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+}
+
+.case2 .deskripsi {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* ---------- Card (3 kolom) ---------- */
+.case2 .kolom-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.case2 .card {
+  padding: 18px;
+  background-color: var(--pink);
+  border-top: 5px solid var(--coklat-muda);
+  border-radius: 15px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.case2 .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(92, 64, 51, 0.15);
+}
+
+.case2 .card h3 {
+  margin-bottom: 8px;
+}
+
+.case2 .card li {
+  margin-bottom: 4px;
+}
+
+.case2 .card li::before {
+  content: "✦ ";
+  color: var(--coklat-muda);
+}
+
+/* ---------- Footer ---------- */
+.case2 .footer {
+  padding: 16px;
+  background-color: var(--coklat-tua);
+  color: var(--cream);
+  text-align: center;
+  border-radius: 15px;
+}
+
+
+/* =====================================================
+   D. RESPONSIVE (Media Query)
+   ===================================================== */
+
+/* ---------- Tablet (maks. 992px): kolom lebih kecil ---------- */
+@media (max-width: 992px) {
+  .case2 .wrapper {
+    grid-template-columns: 170px 1fr;
+  }
+
+  .case2 .kolom-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case2 .menu a {
+    padding: 8px 10px;
+    font-size: 16px;
+  }
+}
+
+/* ---------- Mobile (maks. 600px): satu kolom, menu vertikal ---------- */
+@media (max-width: 600px) {
+  /* Case 1 */
+  body.case1 {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .case1 .container {
+    padding: 18px;
+  }
+
+  .case1 #judul {
+    font-size: 1.7rem;
+  }
+
+  /* Case 2 */
+  .case2 .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "konten"
+      "footer";
+    padding: 10px;
+  }
+
+  .case2 .header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .case2 .menu {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .case2 .kolom-wrap {
+    grid-template-columns: 1fr;
+  }
+}

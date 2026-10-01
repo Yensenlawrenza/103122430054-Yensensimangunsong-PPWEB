@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case 2 - Layout Website Yensen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="case2">
+  <div class="wrapper">
+
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="identitas">
+        <h1>Yensen</h1>
+        <p>Software Engineering Student</p>
+      </div>
+
+      <!-- Navbar (Flexbox) -->
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="#greeting">Beranda</a></li>
+          <li><a href="#data-diri">Tentang</a></li>
+          <li><a href="#pendidikan">Pendidikan</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#greeting">Profile</a></li>
+        <li><a href="#deskripsi">About Me</a></li>
+        <li><a href="#pendidikan">Education</a></li>
+        <li><a href="#hobi">Hobbies</a></li>
+        <li><a href="#kontak">Contact</a></li>
+      </ul>
+    </aside>
+
+    <!-- ========== KONTEN UTAMA ========== -->
+    <main class="konten">
+      <h2 id="greeting">Halo, aku Yensen Lawrenza Simangunsong ♡</h2>
+      <p id="deskripsi" class="deskripsi">
+        saya calon Frontend UI Developer yang cantik. Website ini dibuat sebagai latihan
+        <span class="sorot">Flexbox</span>, <span class="sorot">CSS Grid</span>,
+        dan <span class="sorot">Responsive Design</span>.
+      </p>
+
+      <div class="kolom-wrap">
+        <article class="card" id="data-diri">
+          <h3>Data Diri</h3>
+          <ul>
+            <li>Nama: Yensen Lawrenza Simangunsong</li>
+            <li>Status: Software Engineering Student</li>
+            <li>Kota: Sumatera Utara</li>
+          </ul>
+        </article>
+
+        <article class="card" id="pendidikan">
+          <h3>Pendidikan</h3>
+          <ul>
+            <li>S1 Software Engineering</li>
+            <li>SMA 1 Dolok sanggul</li>
+          </ul>
+        </article>
+
+        <article class="card" id="hobi">
+          <h3>Minat &amp; Hobi</h3>
+          <ul>
+            <li>Coding</li>
+            <li>Musik</li>
+            <li>Masak</li>
+          </ul>
+        </article>
+      </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="kontak">
+      <p>&copy; 2026 Yensen Lawrenza Simangunsong · yensensimangunsong@example.com</p>
+      <p>Proudly developed using HTML & CSS</p>
+    </footer>
+
+  </div>
+</body>
+</html>
