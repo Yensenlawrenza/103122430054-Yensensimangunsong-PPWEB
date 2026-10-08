@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pendaftaran Praktikum Pemrograman Web</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+  >
+
+  <style>
+    :root {
+      --ink: #0f172a;        
+      --muted: #475569;      
+      --indigo: #389eca;   
+      --indigo-dark: #389eca;
+      --emerald: #059650;    
+      --paper: #f5f7ff;      
+      --line: #dfe3f5;
+    }
+
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, #e0e7ff 0, transparent 40%),
+        radial-gradient(circle at 90% 30%, #d1fae5 0, transparent 35%),
+        var(--paper);
+      background-attachment: fixed;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--indigo-dark) 0%, var(--indigo) 60%, #0f766e 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      border-bottom-left-radius: 2.5rem;
+      border-bottom-right-radius: 2.5rem;
+      padding: 3.5rem 0 6rem;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .hero::before {
+      width: 320px;
+      height: 320px;
+      top: -120px;
+      right: -80px;
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      bottom: -100px;
+      left: -60px;
+    }
+
+    .hero .badge-soft {
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .3);
+      font-weight: 500;
+      letter-spacing: .04em;
+    }
+
+    .hero h1 {
+      letter-spacing: -.02em;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, .25);
+    }
+
+    .hero p {
+      color: #c7d2fe;
+    }
+
+    .overlap {
+      margin-top: -4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card-x {
+      border: 1px solid var(--line);
+      border-radius: 1.5rem;
+      background: #fff;
+      box-shadow: 0 20px 45px -20px rgba(67, 56, 202, .35);
+      overflow: hidden;
+    }
+
+    .card-x h2 {
+      color: var(--indigo-dark);
+      font-weight: 700;
+    }
+
+    .card-x p,
+    .text-soft {
+      color: var(--muted);
+    }
+
+    .img-wrap {
+      position: relative;
+    }
+
+    .img-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30, 27, 75, .55), transparent 55%);
+    }
+
+    .img-wrap .caption {
+      position: absolute;
+      left: 1.25rem;
+      bottom: 1rem;
+      z-index: 1;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .feature {
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+      margin-bottom: .75rem;
+    }
+
+    .feature .dot {
+      flex: 0 0 2rem;
+      height: 2rem;
+      border-radius: .6rem;
+      display: grid;
+      place-items: center;
+      background: #e0e7ff;
+      color: var(--indigo);
+      font-weight: 700;
+    }
+
+    /* ===== Form ===== */
+    .form-label {
+      font-weight: 600;
+      color: var(--indigo-dark);
+      font-size: .9rem;
+    }
+
+    .input-group-text {
+      background: #eef2ff;
+      border-color: var(--line);
+      color: var(--indigo);
+    }
+
+    .form-control {
+      border-color: var(--line);
+      padding: .7rem .9rem;
+      color: var(--ink);
+    }
+
+    .form-control::placeholder {
+      color: #94a3b8;
+    }
+
+    .form-control:focus {
+      border-color: var(--indigo);
+      box-shadow: 0 0 0 .25rem rgba(67, 56, 202, .15);
+    }
+
+    /* ===== Tombol ===== */
+    .btn {
+      border-radius: .8rem;
+      font-weight: 600;
+      padding: .7rem 1.6rem;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-success {
+      background: var(--emerald);
+      border-color: var(--emerald);
+      box-shadow: 0 10px 20px -10px rgba(5, 150, 105, .7);
+    }
+
+    .btn-success:hover,
+    .btn-success:focus {
+      background: #047857;
+      border-color: #047857;
+    }
+
+    .btn-secondary {
+      background: #64748b;
+      border-color: #64748b;
+    }
+
+    .btn-secondary:hover {
+      background: #475569;
+      border-color: #475569;
+    }
+
+    /* ===== Tabel ===== */
+    .table-wrap {
+      border: 1px solid var(--line);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 15px 35px -20px rgba(15, 23, 42, .3);
+    }
+
+    .table {
+      --bs-table-striped-bg: #f3f5ff;
+      --bs-table-hover-bg: #e0e7ff;
+      --bs-table-border-color: var(--line);
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .table thead th {
+      background: var(--indigo-dark);
+      color: #fff;
+      border-color: var(--indigo-dark);
+      font-weight: 600;
+      padding: .9rem 1rem;
+      white-space: nowrap;
+    }
+
+    .table td {
+      padding: .85rem 1rem;
+    }
+
+    .kelas-pill {
+      background: #d1fae5;
+      color: #065f46;
+      border-radius: 99px;
+      padding: .2rem .7rem;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    .section-title {
+      color: var(--indigo-dark);
+      font-weight: 700;
+    }
+
+    footer {
+      color: var(--muted);
+    }
+
+    @media (max-width: 575.98px) {
+      .hero {
+        padding-bottom: 5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero text-center">
+    <div class="container position-relative">
+      <span class="badge badge-soft rounded-pill px-3 py-2 mb-3">
+        MODUL 3 &bull; BOOTSTRAP 5.3
+      </span>
+      <h1 class="display-5 fw-bolder text-uppercase">
+        Pendaftaran Praktikum Pemrograman Web
+      </h1>
+      <p class="lead mb-0 mx-auto" style="max-width: 640px;">
+        Bangun halaman web yang rapi, responsif, dan modern. Daftarkan dirimu sekarang!
+      </p>
+    </div>
+  </header>
+
+  <main class="container pb-5">
+
+    <div class="row g-4 overlap">
+
+      <section class="col-md-6">
+        <div class="card-x h-100">
+
+          <div class="img-wrap">
+            <img
+              src="assets/cantik.jpeg"
+              class="img-fluid w-100"
+              alt="Mahasiswa mengikuti kegiatan praktikum pemrograman web di laboratorium kampus"
+            >
+          </div>
+
+          <div class="p-4">
+            <h2 class="h4 mb-2">Tentang Praktikum</h2>
+            <p>
+              Praktikum ini sangat bermanfaat buat kamu! agar kamu terampil dalam membangun halaman web modern
+              menggunakan HTML5, CSS, ataupun framework Bootstrap dan Tailwind CSS melalui
+              latihan langsung di lab💻
+            </p>
+
+            <div class="feature">
+              <span class="dot">1</span>
+              <span class="text-soft">Langsung Praktikum dengan dosen ahli bidang</span>
+            </div>
+            <div class="feature">
+              <span class="dot">2</span>
+              <span class="text-soft">Ruangan yang bersih dan nyaman</span>
+            </div>
+            <div class="feature mb-0">
+              <span class="dot">3</span>
+              <span class="text-soft">Belajar praktikum dengan study casus yang menarik</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="col-md-6">
+        <div class="card-x h-100 p-4">
+          <h2 class="h4 mb-1">Formulir Pendaftaran</h2>
+          <p class="small mb-4">Semua kolom wajib diisi.</p>
+
+          <form id="formDaftar" novalidate>
+
+            <div class="mb-3">
+              <label for="nama" class="form-label">Nama Lengkap</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">&#128100;</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nama"
+                  name="nama"
+                  placeholder="Masukkan nama lengkap"
+                  required
+                >
+                <div class="invalid-feedback">Nama lengkap wajib diisi.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="nim" class="form-label">NIM</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">&#127380;</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nim"
+                  name="nim"
+                  placeholder="Contoh: 106473636338"
+                  required
+                >
+                <div class="invalid-feedback">NIM wajib diisi.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">&#9993;</span>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="nama@email.com"
+                  required
+                >
+                <div class="invalid-feedback">Masukkan alamat email yang valid.</div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="kelas" class="form-label">Kelas</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">&#127979;</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="kelas"
+                  name="kelas"
+                  placeholder="Contoh: RPPL-02"
+                  required
+                >
+                <div class="invalid-feedback">Kelas wajib diisi.</div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+              <button type="submit" class="btn btn-success">Daftar</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+
+          </form>
+
+          <div
+            id="hasil"
+            class="alert alert-success border-0 rounded-4 mt-4 mb-0 d-none"
+            role="alert"
+          ></div>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="mt-5">
+      <div class="d-flex flex-wrap justify-content-between align-items-end mb-3 gap-2">
+        <div>
+          <h2 class="h4 section-title mb-0">Daftar Peserta Praktikum</h2>
+          <span class="text-soft small">
+            Peserta yang mendaftar akan muncul di tabel ini.
+          </span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered table-hover align-middle">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Nama Lengkap</th>
+                <th scope="col">NIM</th>
+                <th scope="col">Kelas</th>
+              </tr>
+            </thead>
+            <tbody id="isiTabel">
+              <tr>
+                <td>1</td>
+                <td>Yensen cantik</td>
+                <td>104733738385</td>
+                <td><span class="kelas-pill">RPL-02</span></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Naia</td>
+                <td>101167500102</td>
+                <td><span class="kelas-pill">RPL-01</span></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Cia</td>
+                <td>101142419283</td>
+                <td><span class="kelas-pill">RPL-02</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="text-center small py-4">
+    &copy; 2026 Praktikum Pemrograman Web &mdash; Dibuat dengan Bootstrap 5.3
+  </footer>
+
+  <script>
+    const form = document.getElementById('formDaftar');
+    const hasil = document.getElementById('hasil');
+    const tabel = document.getElementById('isiTabel');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      form.classList.add('was-validated');
+
+      if (!form.checkValidity()) {
+        hasil.classList.add('d-none');
+        return;
+      }
+
+      const tr = tabel.insertRow();
+
+      [
+        tabel.rows.length,
+        form.nama.value.trim(),
+        form.nim.value.trim()
+      ].forEach(v => tr.insertCell().textContent = v);
+
+      const pill = document.createElement('span');
+      pill.className = 'kelas-pill';
+      pill.textContent = form.kelas.value.trim();
+      tr.insertCell().appendChild(pill);
+
+      hasil.textContent =
+        'Terima kasih, ' + form.nama.value.trim() +
+        '! Pendaftaran berhasil dan namamu sudah masuk daftar peserta.';
+      hasil.classList.remove('d-none');
+      form.reset();
+    });
+
+    form.addEventListener('reset', function () {
+      form.classList.remove('was-validated');
+    });
+  </script>
+
+</body>
+</html>
